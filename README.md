@@ -13,8 +13,7 @@ helm install atomix-raft-storage atomix/atomix-raft-storage -n kube-system --ver
 helm install -n kube-system onos-operator onos/onos-operator --version 0.5.2
 
 # Install ran-simulator e do onos-kpimon flags
-helm -n sdran install sd-ran sdran/sd-ran --set import.ran-simulator.enabled=true --set import.onos-kpimon.enabled=true --version 1.4.2
-
+helm -n sdran install sd-ran sdran/sd-ran --set import.ran-simulator.enabled=true --set import.onos-kpimon.enabled=true --set ran-simulator.pci.modelName=your-modal-name --version 1.4.2
 
 helm install -n sdran onos-exporter sdran/onos-exporter --set import.fluent-bit.enabled=true --set import.opensearch.enabled=true --set import.prometheus-stack.enabled=true
 ```
@@ -25,7 +24,8 @@ sysctl -w vm.max_map_count=262144
 systemctl restart docker.service
 ```
 
-## RANSim usando um modelo diferente 
+## RANSim usando um modelo diferente
+`obs: nao está funcionando dessa forma e está passando atraves da flag --set ran-simulator.pci.modelName=two-cell-two-node-model.`
 
 Por default, o RANSim usa o model.yaml como arquivo modelo. Para usar um diferente específico deve-se:
 
