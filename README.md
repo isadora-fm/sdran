@@ -1,3 +1,84 @@
+# Prerequisites
+- docker
+- helm
+- k8s
+
+## Docker Installation
+
+```js
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+sudo sh get-docker.sh
+```
+
+Docker without sudo:
+```js
+sudo usermod -aG docker $USER     
+
+newgrp docker 
+```
+## Helm Installation
+
+```
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+
+chmod 700 get_helm.sh
+
+./get_helm.sh
+
+```
+
+## K8S cluster Installation
+
+1. Add Kubernetes Signing Key
+```js
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+```
+
+2. Add Software Repositories
+```js
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+```
+
+3. Kubernetes Installation Tools
+```js
+sudo apt-get install kubeadm kubelet kubectl
+sudo apt-mark hold kubeadm kubelet kubectl
+
+```
+
+4. disabling the swap memory on each server:
+```js
+sudo swapoff –a
+```
+
+5. Assign Unique Hostname for Each Server Node
+```js
+sudo hostnamectl set-hostname master-node
+```
+
+6. Initialize Kubernetes on Master Node
+```js
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+```
+
+7. to create a directory for the cluster:
+```js
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+8. Deploy Pod Network to Cluster
+```js
+sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
+
+OBS: if the pod got tainted do:
+```
+kubectl taint nodes --all node-role.kubernetes.io/master:-
+```
+
+
 # Install SDRAN
 
 ```docker
