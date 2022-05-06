@@ -97,7 +97,13 @@ kubectl taint nodes --all node-role.kubernetes.io/master:-
 # Install SDRAN
 
 ```docker
-# Update repositório helm
+# Add project helm repositories
+helm repo add cord https://charts.opencord.org
+helm repo add atomix https://charts.atomix.io
+helm repo add onos https://charts.onosproject.org
+helm repo add sdran https://sdrancharts.onosproject.org
+
+# Update repository helm
 helm repo update
 
 # Install atomix
