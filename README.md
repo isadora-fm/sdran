@@ -92,6 +92,7 @@ OBS: if the pod got tainted do:
 ```
 kubectl taint nodes --all node-role.kubernetes.io/master:-
 ```
+in case of any other taint errors, use 'kubectl describe node' to find out more about it (check the field: Taints)
 
 
 # Install SDRAN
