@@ -66,6 +66,16 @@ sudo hostnamectl set-hostname master-node
 ```js
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 ```
+PS.: in case of error
+```js
+[ERROR CRI]: container runtime is not running: output: time="2020-09-24T11:49:16Z" level=fatal msg="getting status of runtime failed: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService"
+, error: exit status 1
+```
+follow the steps below and retry the init:
+```js
+rm /etc/containerd/config.toml
+systemctl restart containerd
+```
 
 7. to create a directory for the cluster:
 ```js
