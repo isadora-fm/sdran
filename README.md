@@ -40,6 +40,11 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 ```
 
+PS.: if it fails on finding apt-add-repository command, install the package below:
+```js
+sudo apt-get install software-properties-common -y
+```
+
 3. Kubernetes Installation Tools
 ```js
 sudo apt-get install kubeadm kubelet kubectl
