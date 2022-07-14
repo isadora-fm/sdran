@@ -54,7 +54,7 @@ sudo apt-mark hold kubeadm kubelet kubectl
 
 4. disabling the swap memory on each server:
 ```js
-sudo swapoff –a
+sudo swapoff -a
 ```
 
 5. Assign Unique Hostname for Each Server Node
