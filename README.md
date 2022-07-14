@@ -85,12 +85,12 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 8. Deploy Pod Network to Cluster
 ```js
-sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
 OBS: if the pod got tainted do:
 ```
-kubectl taint nodes --all node-role.kubernetes.io/master:-
+kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 in case of any other taint errors, use 'kubectl describe node' to find out more about it (check the field: Taints)
 
