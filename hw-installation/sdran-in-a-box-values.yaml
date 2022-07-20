@@ -109,7 +109,7 @@ config:
         address: 10.128.100.100 #if we use RiaB, Makefile script will automatically apply appropriate IP address
       s1mme:
         interface: eno1 # if we use RiaB, Makefile script will automatically apply appropriate interface name
-        address: 192.168.13.21 # This is the primary IP address defined to the OAI-CU/DU machine - see `Install OAI CU/DU`
+        address: 192.168.13.133 # This is the primary IP address defined to the OAI-CU/DU machine - see `Install OAI CU/DU`
       s1u:
         interface: eno1
         address: 192.168.11.10 # This is the secondary IP address defined to the OAI-CU/DU machine - see `Install OAI CU/DU`
