@@ -21,8 +21,8 @@ config:
           - selected-user-plane-profile: "menlo"
             keys:
               serving-plmn:
-                mcc: 315
-                mnc: 10
+                mcc: 001
+                mnc: 01
                 tac: 1
             priority: 5
             selected-access-profile:
@@ -77,25 +77,25 @@ config:
       config.json:
         mme:
           mcc:
-            dig1: 3
-            dig2: 1
-            dig3: 5
+            dig1: 0
+            dig2: 0
+            dig3: 1
           mnc:
             dig1: 0
-            dig2: 1
-            dig3: 0
+            dig2: 0
+            dig3: 1
           apnlist:
             internet: "spgwc"
   hss:
     bootstrap:
       users:
-        - apn: "internet"
-          key: "000102030405060708090a0b0c0d0e0f"
-          opc: "69d5c2eb2e2e624750541d3bbc692ba5"
+        - apn: "phone"
+          key: "00112233445566778899AABBCCDDEEFF"
+          opc: "279EB54971771559879284FDDDE3EE0C"
           sqn: 96
-          imsiStart: "315010206000001"
+          imsiStart: "001010000000104"
           msisdnStart: "1122334455"
-          count: 30
+          count: 7
       mmes:
         - id: 1
           mme_identity: mme.riab.svc.cluster.local
@@ -114,8 +114,8 @@ config:
         interface: eno1
         address: 192.168.11.10 # This is the secondary IP address defined to the OAI-CU/DU machine - see `Install OAI CU/DU`
     plmnID:
-      mcc: "315"
-      mnc: "010"
+      mcc: "001"
+      mnc: "001"
       length: 3
       fullName: "ONF SDRAN"
       shortName: "SDRAN"
@@ -130,7 +130,7 @@ config:
         interface: eno1 #if we use RiaB, Makefile script will automatically apply appropriate IP address
         address: 10.128.100.100 #if we use RiaB, Makefile script will automatically apply appropriate IP address
   oai-ue:
-    enableUSRP: true
+    enableUSRP: false
     networks:
       nfapi:
         interface: eno1 #if we use RiaB, Makefile script will automatically apply appropriate IP address
