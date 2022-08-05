@@ -53,13 +53,13 @@ config:
       ip: 172.250.0.0 # if we use RiaB, Makefile script will override this value with the value defined in Makefile script.
   upf:
     enb:
-       subnet: 192.168.11.8/29 # This is the same subnet defined in the setup, check the note at the end of the page.
+       subnet: 192.168.13.8/29 # This is the same subnet defined in the setup, check the note at the end of the page.
     access:
-       gateway: 192.168.11.17
-       ip: 192.168.11.19/29
+       gateway: 192.168.13.17
+       ip: 192.168.13.19/29
     core:
-       gateway: 192.168.11.1
-       ip: 192.168.11.3/29
+       gateway: 192.168.13.1
+       ip: 192.168.13.4/29
     privileged: true
     name: "oaisim"
     sriov:
