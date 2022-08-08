@@ -53,13 +53,13 @@ config:
       ip: 172.250.0.0 # if we use RiaB, Makefile script will override this value with the value defined in Makefile script.
   upf:
     enb:
-       subnet: 192.168.13.8/29 # This is the same subnet defined in the setup, check the note at the end of the page.
+       subnet: 192.168.11.8/29 # This is the same subnet defined in the setup, check the note at the end of the page.
     access:
-       gateway: 192.168.13.17
-       ip: 192.168.13.19/29
+       gateway: 192.168.11.17
+       ip: 192.168.11.19/29
     core:
-       gateway: 192.168.13.1
-       ip: 192.168.13.4/29
+       gateway: 192.168.11.1
+       ip: 192.168.11.3/29
     privileged: true
     name: "oaisim"
     sriov:
@@ -111,8 +111,8 @@ config:
         interface: eno1 # if we use RiaB, Makefile script will automatically apply appropriate interface name
         address: 192.168.13.10 # This is the primary IP address defined to the OAI-CU/DU machine - see `Install OAI CU/DU`
       s1u:
-        interface: vlan.223
-        address: 192.168.13.11 # This is the secondary IP address defined to the OAI-CU/DU machine - see `Install OAI CU/DU`
+        interface: eno1
+        address: 192.168.11.10 # This is the secondary IP address defined to the OAI-CU/DU machine - see `Install OAI CU/DU`
     plmnID:
       mcc: "001"
       mnc: "001"
