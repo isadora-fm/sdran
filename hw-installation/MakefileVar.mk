@@ -103,7 +103,7 @@ NFAPI_DU_IPADDR					:= $(shell ip -4 a show $(NFAPI_DU_INTERFACE) | grep inet | 
 NFAPI_UE_INTERFACE				:= $(shell ip -4 route list default | awk -F 'dev' '{ print $$2; exit }' | awk '{ print $$1 }')
 NFAPI_UE_IPADDR					:= $(shell ip -4 a show $(NFAPI_UE_INTERFACE) | grep inet | awk '{print $$2}' | awk -F '/' '{print $$1}' | tail -n 1)
 E2T_NODEPORT_INTERFACE			:= eno1
-E2T_NODEPORT_IPADDR				:= 192.168.10.22
+E2T_NODEPORT_IPADDR				:= 192.168.13.3
 E2_F1_BRIDGE_NAME				:= br-e2f1-net
 
 # For routing configuarion
@@ -120,6 +120,6 @@ OAI_MACHINE_IP              := 192.168.13.10/16
 OAI_ENB_NET_INTERFACE       := $(shell ip -4 route list default | awk -F 'dev' '{ print $$2; exit }' | awk '{ print $$1 }')
 OMEC_ENB_NET_IP             := 192.168.11.12/29
 OMEC_DEFAULT_INTERFACE      := $(shell ip -4 route list default | awk -F 'dev' '{ print $$2; exit }' | awk '{ print $$1 }')
-OMEC_MACHINE_IP             := 192.168.13.2/29
+OMEC_MACHINE_IP             := 192.168.13.2/24
 RIC_MACHINE_IP              := 192.168.13.3/24 # It's dummy IP address. It should be changed to appropriate routable IP address for RIC machine
 RIC_DEFAULT_IP		    := $(shell ip -4 route list default | awk -F 'dev' '{ print $$2; exit }' | awk '{ print $$1 }')
