@@ -121,7 +121,7 @@ config:
       shortName: "SDRAN"
   oai-enb-du:
     enableUSRP: true
-    mode: local_L1 #or local_L1 for USRP and BasicSim
+    mode: nfapi #or local_L1 for USRP and BasicSim
     networks:
       f1:
         interface: eno1 #if we use RiaB, Makefile script will automatically apply appropriate IP address
